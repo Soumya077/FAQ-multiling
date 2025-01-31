@@ -1,0 +1,47 @@
+# Node modules
+node_modules/
+backend/node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment Variables
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.log
+
+# Build Files
+dist/
+build/
+.next/
+out/
+
+# Database Files
+*.sqlite
+*.sqlite3
+*.db
+*.pdb
+*.mdb
+*.log
+
+# VS Code & System Files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Heroku
+.heroku/
+
+# Dependencies for specific package managers
+.pnpm-store/
+.yarn/
+.yarn-cache/
+.yarnrc.yml
