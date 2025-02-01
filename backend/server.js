@@ -1,12 +1,18 @@
 require("dotenv").config();
 const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const FAQ = require('./models/FAQ');
-const redis = require('redis');
-const translate = require('google-translate-api');
+const faqRoutes = require('./faqRoutes');
+
+dotenv.config();
 
 const app = express();
 app.use(express.json());
+
+app.use(cors());
+app.use(bodyParser.json());
 
 // MongoDB
 mongoose.connect(process.env.MONGOURL)
@@ -16,5 +22,7 @@ mongoose.connect(process.env.MONGOURL)
     process.exit(1);
 });
   
+app.use('/api', faqRoutes);
 
-app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
